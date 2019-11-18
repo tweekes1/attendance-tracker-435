@@ -1,22 +1,14 @@
-from flask import Flask, render_template
-app = Flask(__name__)
+from flask import Flask
 
-@app.route("/")
-def index():
-    return render_template("index.html", title="Index")
+def create_app():
+    app = Flask(__name__)
+    
+    app.config['SECRET_KEY'] = 'Big Secret'
 
-@app.route("/register")
-def register():
-    return render_template("register.html", title="Registration")
+    from routes.common_routes import common
+    app.register_blueprint(common)
 
-# @app.route("/register", methods=['POST'])
-# def register_post():
-#     return render_template("index.html")
+    from routes.auth_routes import auth
+    app.register_blueprint(auth)
 
-# @app.route("/login")
-# def login():
-#     return render_template("login.html", title="Login")
-
-# @app.route("/login", methods=['POST'])
-# def login_post():
-    # return render_template("index.html")
+    return app
