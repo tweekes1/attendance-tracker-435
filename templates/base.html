@@ -21,20 +21,20 @@
                 <nav class="navbar">
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <div class="navbar-end">
-                            <a href="" class="navbar-item">
+                            <a href="{{ url_for('auth.register') }}" class="navbar-item">
                                 Register
                             </a>
                         <div class="navbar-end">
-                            <a href="" class="navbar-item">
+                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
                                 Login
                             </a>    
                         </div>
                         <div class="navbar-end">
-                            <a href="" class="navbar-item">
+                            <a href="{{ url_for('common.about') }}" class="navbar-item">
                                 About
                             </a>
                         <div class="navbar-end">
-                            <a href="" class="navbar-item">
+                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
                                 Logout
                             </a>
                         </div>
