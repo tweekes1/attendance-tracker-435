@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template
+from flask import Blueprint, redirect, render_template, request
 from forms import LoginForm, RegistrationForm
 
 auth = Blueprint('auth', __name__, template_folder='templates')
@@ -7,12 +7,27 @@ auth = Blueprint('auth', __name__, template_folder='templates')
 def login():
     form = LoginForm()
 
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            # STUB
+            # Check to make sure that the user exists and if there password is correct
+            # If they don't Flash message
+            return render_template('index.html')
+            
     return render_template('login.html', form=form)
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
 
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            # STUB
+            # Check to make sure the user doesn't exist already
+            # if they do flash message if they dont add them to 
+            # user database
+            return render_template('index.html')
+            
     return render_template('register.html', form=form)
 
 @auth.route('/logout')
