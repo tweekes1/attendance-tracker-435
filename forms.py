@@ -3,10 +3,11 @@ from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 class LoginForm(FlaskForm):
-    netid = StringField('Netid', 
-                        validators=[DataRequired(), Length(min=5, max=10)])
+    email = StringField('Netid', 
+                        validators=[DataRequired(), Email(), Length(min=5, max=10)])
     password = PasswordField('Password', 
                              validators=[DataRequired(), Length(min=8, max=25)])
+    login_btn = SubmitField('Login')
 
 class RegistrationForm(FlaskForm):
     netid = StringField('Netid', validators=[DataRequired(), Length(min=5, max=10)])
