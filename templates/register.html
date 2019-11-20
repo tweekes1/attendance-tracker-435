@@ -7,7 +7,7 @@
         <div class="box">
 
             <form method="POST" action="/register">
-
+                {{ form.hidden_tag() }}
                 <div class="field">    
                     <div class="control">
                         <!-- <input class="input is-medium" type="text" name="netid" placeholder="Net ID"> -->
@@ -28,7 +28,7 @@
                 <div class="field">
                     <p class="control has-icons-left">
                         <!-- <input class="input is-medium" type="email" name="email" placeholder="Email"> -->
-                        {{ form.email(class="input is-medium", placeholder="Email")}}
+                        {{ form.email(class="input is-medium", placeholder="Email") }}
                         <span class="icon is-small is-left">
                             <i class="material-icons">email</i>
                         </span>
@@ -38,7 +38,7 @@
                 <div class="field">    
                     <p class="control has-icons-left">
                         <!-- <input class="input is-medium" type="password" name="password" placeholder="Password"> -->
-                        {{ form.password(class="input is-medium", placeholder="Password")}}
+                        {{ form.password(class="input is-medium", placeholder="Password") }}
                         <span class="icon is-small is-left">
                             <i class="material-icons">lock</i>
                         </span>
@@ -48,7 +48,7 @@
                 <div class="field">    
                     <p class="control has-icons-left">
                         <!-- <input class="input is-medium" type="password" name="confirm_password" placeholder="Confirm Password"> -->
-                        {{ form.confirm_password(class="input is-medium", placeholder="Confirm Password")}}
+                        {{ form.confirm_password(class="input is-medium", placeholder="Confirm Password") }}
                         <span class="icon is-small is-left">
                             <i class="material-icons">lock</i>
                         </span>
@@ -57,7 +57,7 @@
 
                 <div class="buttons">
                     <!-- <button class="button is-link is-fullwidth">Submit</button> -->
-                    {{ form.submit_btn(class="button is-link is-fullwidth")}}
+                    {{ form.submit_btn(class="button is-link is-fullwidth") }}
                 </div>
 
             </form>
