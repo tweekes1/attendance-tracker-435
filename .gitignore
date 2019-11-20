@@ -3,3 +3,4 @@ routes/__pycache__
 models/*
 .vscode/*
 env
+*.sh

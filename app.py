@@ -1,4 +1,6 @@
 from flask import Flask
+from flaskext.mysql import MySQL
+
 
 def create_app():
     app = Flask(__name__)
@@ -12,3 +14,6 @@ def create_app():
     app.register_blueprint(auth)
 
     return app
+
+app = create_app()
+mysql = MySQL(app)
