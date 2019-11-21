@@ -1,5 +1,7 @@
 from flask import Blueprint, redirect, render_template
 
+# Blueprint that will be used to register new common routes for the app
+# common = does not need authentication can be accessed regardless of login
 common = Blueprint('common', __name__, template_folder='templates')
 
 @common.route('/')

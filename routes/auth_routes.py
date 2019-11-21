@@ -1,6 +1,9 @@
 from flask import Blueprint, redirect, render_template, request
 from forms import LoginForm, RegistrationForm
 
+# Blueprint that will register 'auth' or authentication routes
+# Routes that will require user authentication or depend on 
+# user authentication
 auth = Blueprint('auth', __name__, template_folder='templates')
 
 @auth.route('/login', methods=['GET', 'POST'])
