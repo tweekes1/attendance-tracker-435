@@ -7,15 +7,8 @@
     <div class="field">
         <h4 class="title">Register</h4>
         <div class="box">
-
-            <form method="POST" action="/register">
+            <form methods="POST" action="{{ url_for('auth.register') }}">
                 {{ form.hidden_tag() }}
-                <div class="field">    
-                    <div class="control">
-                        <!-- <input class="input is-medium" type="text" name="netid" placeholder="Net ID"> -->
-                        {{ form.netid(class="input is-medium", placeholder="Net ID")}}
-                    </div>
-                </div>
 
                 <div class="field">
                     <p class="control has-icons-left">
@@ -58,8 +51,7 @@
                 </div>
 
                 <div class="buttons">
-                    <!-- <button class="button is-link is-fullwidth">Submit</button> -->
-                    {{ form.submit_btn(class="button is-link is-fullwidth") }}
+                    {{ form.submit_btn(class="button is-link is-fullwidth", formmethod="POST") }}
                 </div>
 
             </form>

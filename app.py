@@ -6,10 +6,11 @@ from os import environ
 def create_app():
     app = Flask(__name__)
     
-    app.config['SECRET_KEY'] = 'Big Secret'
-    
+    # Config for generating form hidden tags
+    app.config['SECRET_KEY'] = environ.get('SECRET_KEY') 
+
     # Database config information all data located in env variables
-    # Currently needs to be housed locally will be placed in distributions os env,
+    # Currently needs to be housed locally will be placed in distributions os env
     app.config['MYSQL_HOST'] = environ.get('MYSQL_HOST')
     app.config['MYSQL_USER'] = environ.get('MYSQL_USER')
     app.config['MYSQL_PASSWORD'] = environ.get('MYSQL_PASSWORD')

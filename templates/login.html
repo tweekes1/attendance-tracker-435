@@ -8,7 +8,7 @@
             <h4 class="title">Login</h4>
             <div class="box">
     
-                <form method="POST" action="/login">
+                <form method="POST" action="{{ url_for('auth.login') }}">
                     {{ form.hidden_tag() }}
         
                     <div class="field">
@@ -33,7 +33,7 @@
     
                     <div class="buttons">
                         <!-- <button class="button is-link is-fullwidth">Login</button> -->
-                        {{ form.login_btn(class="button is-link is-fullwidth")}}
+                        {{ form.login_btn(class="button is-link is-fullwidth", formmethod="POST")}}
                     </div>
     
                 </form>
