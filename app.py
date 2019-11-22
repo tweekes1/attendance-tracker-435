@@ -1,7 +1,9 @@
-from flask import Flask
-from flaskext.mysql import MySQL
 from os import environ
+from flask import Flask
+from logic.database import Database
 
+# connection to database that is accessible by other parts of the application
+mysql_db = Database()
 
 def create_app():
     app = Flask(__name__)
@@ -11,10 +13,11 @@ def create_app():
 
     # Database config information all data located in env variables
     # Currently needs to be housed locally will be placed in distributions os env
-    app.config['MYSQL_HOST'] = environ.get('MYSQL_HOST')
-    app.config['MYSQL_USER'] = environ.get('MYSQL_USER')
-    app.config['MYSQL_PASSWORD'] = environ.get('MYSQL_PASSWORD')
-    app.config['MYSQL_DB'] = environ.get('MYSQL_DB')
+    # Depreciated 'logic/database.py'
+    # app.config['MYSQL_HOST'] = environ.get('MYSQL_HOST')
+    # app.config['MYSQL_USER'] = environ.get('MYSQL_USER')
+    # app.config['MYSQL_PASSWORD'] = environ.get('MYSQL_PASSWORD')
+    # app.config['MYSQL_DB'] = environ.get('MYSQL_DB')
     
     # Blueprints are registered and are incorporated into the app
     from routes.common_routes import common
@@ -25,7 +28,3 @@ def create_app():
 
     # returns our app so that it my be accessed by other pieces of the app
     return app
-
-# Main components of the app. The app itself and the database connecting to the app
-app = create_app()
-mysql = MySQL(app)

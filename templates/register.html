@@ -50,6 +50,17 @@
                     </p>
                 </div>
 
+                <div class="field">
+                    <label class="radio">
+                        <input type="radio" name="user_type" value="student">
+                            Student
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="user_type" value="teacher">
+                            Teacher
+                    </label>
+                </div>
+
                 <div class="buttons">
                     {{ form.submit_btn(class="button is-link is-fullwidth", formmethod="POST") }}
                 </div>

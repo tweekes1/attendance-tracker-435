@@ -1,0 +1,9 @@
+create table users (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password_hash VARCHAR(200) NOT NULL,
+    user_type ENUM('student', 'teacher') NOT NULL,
+    PRIMARY KEY(user_id)  
+);
+
