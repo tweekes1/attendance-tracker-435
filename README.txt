@@ -3,6 +3,7 @@ This should answer some questions that you may have about the code
 HELPFUL RESOURCES:
     cool flask tutorial that helped me understand flask -- https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
     flask-wtf -- https://wtforms.readthedocs.io/en/stable/index.html
+    flask-login -- https://flask-login.readthedocs.io/en/latest/
     Bulma (is a responsive framework can probably make mobile views) -- https://bulma.io/documentation/
     good flask authentication article also where I stole temporary frontend -- https://scotch.io/tutorials/authentication-and-authorization-with-flask-login
 
@@ -20,6 +21,8 @@ Backend
             flask-form: an extension that helps with input forms and basic validation, may need to sanitize forms to avoid SQL vulnerabilities
             flask-mysql: an extension that allows a flask app to connect a mysql database
             flask-wtf: an extension that will be used fof some basic security tools, i.e hashing passwords
+            flask-login: provides handy login manager functions
+            flask-sqlalchemy: an orm that will handle database operations
     -- MySQL: 
             Tables so far [SUBJECT TO CHANGE]
 
