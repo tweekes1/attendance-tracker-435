@@ -10,24 +10,56 @@
     
                 <form method="POST" action="{{ url_for('auth.login') }}">
                     {{ form.hidden_tag() }}
-        
+                    
+                    {% if get_flashed_messages() %}
+                        {% with category, message = get_flashed_messages(with_categories=true)[0] %}
+                            {% if category == 'success' %}    
+                                <div class="notification is-success">
+                                    {{ message }}
+                                </div>
+                            {% elif category == 'failure' %}
+                                <div class="notification is-danger">
+                                    {{ message }}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+
                     <div class="field">
                         <p class="control has-icons-left">
-                            <!-- <input class="input is-medium" type="text" name="email" placeholder="Email"> -->
-                            {{ form.email(class="input is-medium", placeholder="Email")}}
-                            <span class="icon is-small is-left">
-                                <i class="material-icons">email</i>
-                            </span>
+                            {% if form.email.errors %}
+                                {{ form.email(class="input is-medium is-danger", placeholder="Email") }}
+
+                                <span class="icon is-small is-left">
+                                    <i class="material-icons">email</i>
+                                </span>
+                                <p class="help is-danger">{{ form.email.errors[0] }}</p>
+                            {% else %}
+                                {{ form.email(class="input is-medium", placeholder="Email") }}
+
+                                <span class="icon is-small is-left">
+                                    <i class="material-icons">email</i>
+                                </span>
+                            {% endif %}
                         </p>     
                     </div>
     
                     <div class="field">    
                         <p class="control has-icons-left">
-                            <!-- <input class="input is-medium" type="password" name="password" placeholder="Password"> -->
-                            {{ form.password(class="input is-medium", placeholder="Password")}}
-                            <span class="icon is-small is-left">
-                                <i class="material-icons">lock</i>
-                            </span>
+                            {% if form.password.errors %}
+                                {{ form.password(class="input is-medium is-danger", placeholder="Password") }}
+
+                                <span class="icon is-small is-left">
+                                    <i class="material-icons">lock</i>
+                                </span>
+                                <p class="help is-danger">{{ form.password.errors[0] }}</p>
+                            {% else %}
+                                {{ form.password(class="input is-medium", placeholder="Password") }}
+
+                                <span class="icon is-small is-left">
+                                    <i class="material-icons">lock</i>
+                                </span>
+                            {% endif %}
                         </p>
                     </div>
     

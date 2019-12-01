@@ -2,6 +2,7 @@ from os import environ
 from pymysql import connect, cursors, Error
 
 # Database class that will be used to access the information for the application
+# Class is currently not in use database connectivity is handled using SQLAlchemy
 
 class Database():
     def __init__(self):

@@ -10,49 +10,95 @@
             <form methods="POST" action="{{ url_for('auth.register') }}">
                 {{ form.hidden_tag() }}
 
+                {% if get_flashed_messages() %}
+                    {% with category, message = get_flashed_messages(with_categories=true)[0] %}
+                        {% if category == 'failure' %}
+                        <div class="notification is-danger">
+                            <p> {{ message }} </p>
+                            <a href="{{ url_for('auth.login') }}"><strong>Login Here!</strong></a>
+                        </div>
+                        {% endif %}
+                    {% endwith %}
+                {% endif %}
+
                 <div class="field">
                     <p class="control has-icons-left">
-                        <!-- <input class="input is-medium" type="text" name="name" placeholder="Name"> -->
-                        {{ form.name(class="input is-medium", placeholder="Name")}}                        
-                        <span class="icon is-small is-left">
-                            <i class="material-icons">person</i>
-                        </span>
+                        {% if form.name.errors %}
+                            {{ form.name(class="input is-medium is-danger", placeholder="Name") }}
+
+                            <span class="icon is-small is-left">
+                                <i class="material-icons">person</i>
+                            </span>
+                        {% else %}
+                            {{ form.name(class="input is-medium", placeholder="Name") }}
+
+                            <span class="icon is-small is-left">
+                                <i class="material-icons">person</i>
+                            </span>
+                        {% endif %}
                     </p>     
                 </div>
 
                 <div class="field">
                     <p class="control has-icons-left">
-                        <!-- <input class="input is-medium" type="email" name="email" placeholder="Email"> -->
-                        {{ form.email(class="input is-medium", placeholder="Email") }}
-                        <span class="icon is-small is-left">
-                            <i class="material-icons">email</i>
-                        </span>
+                        {% if form.email.errors %}
+                            {{ form.email(class="input is-medium is-danger", placeholder="Email") }}
+
+                            <span class="icon is-small is-left">
+                                <i class="material-icons">email</i>
+                            </span>
+                            <p class="help is-danger">{{ form.email.errors[0] }}</p>
+                        {% else %}
+                            {{ form.email(class="input is-medium", placeholder="Email") }}
+
+                            <span class="icon is-small is-left">
+                                <i class="material-icons">email</i>
+                            </span>
+                        {% endif %}
                     </p>     
                 </div>
 
                 <div class="field">    
                     <p class="control has-icons-left">
-                        <!-- <input class="input is-medium" type="password" name="password" placeholder="Password"> -->
-                        {{ form.password(class="input is-medium", placeholder="Password") }}
-                        <span class="icon is-small is-left">
-                            <i class="material-icons">lock</i>
-                        </span>
+                        {% if form.password.errors %}
+                            {{ form.password(class="input is-medium is-danger", placeholder="Password") }}
+
+                            <span class="icon is-small is-left">
+                                <i class="material-icons">lock</i>
+                            </span>
+                            <p class="help is-danger">{{ form.password.errors[0] }}</p>
+                        {% else %}
+                            {{ form.password(class="input is-medium", placeholder="Password") }}
+
+                            <span class="icon is-small is-left">
+                                <i class="material-icons">lock</i>
+                            </span>
+                        {% endif %}
                     </p>
                 </div>
 
                 <div class="field">    
                     <p class="control has-icons-left">
-                        <!-- <input class="input is-medium" type="password" name="confirm_password" placeholder="Confirm Password"> -->
-                        {{ form.confirm_password(class="input is-medium", placeholder="Confirm Password") }}
-                        <span class="icon is-small is-left">
-                            <i class="material-icons">lock</i>
-                        </span>
+                        {% if form.confirm_password.errors %}
+                            {{ form.confirm_password(class="input is-medium is-danger", placeholder="Confirm Password") }}
+
+                            <span class="icon is-small is-left">
+                                <i class="material-icons">lock</i>
+                            </span>
+                            <p class="help is-danger">{{ form.confirm_password.errors[0] }}</p>
+                        {% else %}
+                            {{ form.confirm_password(class="input is-medium", placeholder="Confirm Password") }}
+
+                            <span class="icon is-small is-left">
+                                <i class="material-icons">lock</i>
+                            </span>
+                        {% endif %}
                     </p>
                 </div>
 
                 <div class="field">
                     <label class="radio">
-                        <input type="radio" name="user_type" value="student">
+                        <input type="radio" name="user_type" value="student" required>
                             Student
                     </label>
                     <label class="radio">
