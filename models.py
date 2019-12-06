@@ -1,4 +1,4 @@
-from app import db, login_manager
+from . import db, login_manager
 from flask_login import UserMixin, current_user
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
