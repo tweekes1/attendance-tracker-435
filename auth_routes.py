@@ -1,5 +1,5 @@
-from .forms import LoginForm, RegistrationForm
-from .models import db, login_manager, login_required, User
+from forms import LoginForm, RegistrationForm
+from models import db, login_manager, login_required, User
 from flask import Blueprint, flash, get_flashed_messages, redirect, render_template, request, url_for
 from flask_login import current_user, login_user, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
