@@ -5,7 +5,7 @@ HELPFUL RESOURCES:
     flask-wtf -- https://wtforms.readthedocs.io/en/stable/index.html
     flask-login -- https://flask-login.readthedocs.io/en/latest/
     Bulma (is a responsive framework can probably make mobile views) -- https://bulma.io/documentation/
-    good flask authentication article also where I stole temporary frontend -- https://scotch.io/tutorials/authentication-and-authorization-with-flask-login
+    good flask authentication article also where I took inspiration for frontend -- https://scotch.io/tutorials/authentication-and-authorization-with-flask-login
 
 Frontend 
     -- CSS frameworks: Bulma and Google icons
